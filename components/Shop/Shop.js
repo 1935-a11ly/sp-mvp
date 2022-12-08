@@ -54,7 +54,7 @@ export default function Shop() {
         <div className={styles.mobilenav}>
         <h1><Link href = "\shop">Explore</Link></h1>
               <h1><Link href = "\shop">Near Me</Link></h1>
-              <h1><Link href = "\shop">What's New?</Link></h1>
+              <h1><Link href = "\add-products">Sell</Link></h1>
               <h1><Link href = "\login">Sign-in</Link></h1>
 		</div>
 		</><div className={styles.headerimagecontainer}>
