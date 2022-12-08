@@ -23,6 +23,27 @@ export function Shop() {
 	const priceascendingProducts = (event) => {
 		data.slice().sort((a, b) => b.product_date - a.product_date);
 	};
+	if (typeof window !== "undefined") {
+		window.onload = function () {
+			const menu_btn = document.querySelector(`.${styles.hamburger}`);
+			const nav_menu = document.querySelector(`.${styles.mobilenav}`);
+	
+			menu_btn.addEventListener('click', function() {
+				menu_btn.classList.toggle(`${styles.isactive}`);
+				nav_menu.classList.toggle(`${styles.isactive}`);
+			});
+	
+		}
+	}
+	function myFunction() {
+		const menu_btn = document.querySelector(`.${styles.hamburger}`);
+			const nav_menu = document.querySelector(`.${styles.mobilenav}`);
+	
+			menu_btn.addEventListener('click', function() {
+				menu_btn.classList.toggle(`${styles.isactive}`);
+				nav_menu.classList.toggle(`${styles.isactive}`);
+			});
+	}
 
 	return (
 		<><><div className={styles.Nav}>
@@ -36,6 +57,23 @@ export function Shop() {
 			  <h1 className={styles.signin}><Link href = "\login">Sign-in</Link></h1>
 				<h1 className={styles.menufonts}><button className={styles.sellbtn} onClick={addProducts}>Sell my items</button></h1>
 			</div>
+			<button className={`${styles.hamburger}`} onClick={myFunction}>
+            <div className={styles.bar} onClick={myFunction}></div>
+          </button>
+        </div>
+        <div className={styles.mobilenav}>
+		<div className={styles.burgercontent}>
+        <h1><Link href = "\shop">Explore</Link></h1>
+              <h1><Link href = "\shop">Near Me</Link></h1>
+              <h1><Link href = "\shop">What's New?</Link></h1>
+              <h1><Link href = "\login">Sign-in</Link></h1>
+        </div>
+        </div>
+        <div className={styles.mobilenav}>
+        <h1><Link href = "\shop">Explore</Link></h1>
+              <h1><Link href = "\shop">Near Me</Link></h1>
+              <h1><Link href = "\shop">What's New?</Link></h1>
+              <h1><Link href = "\login">Sign-in</Link></h1>
 		</div>
 <div>
 		</div>

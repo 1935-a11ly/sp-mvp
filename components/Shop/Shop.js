@@ -6,6 +6,18 @@ import useSWR from "swr";
 import Image from "next/image";
 export default function Shop() {
 	const router=useRouter()
+	if (typeof window !== "undefined") {
+		window.onload = function () {
+			const menu_btn = document.querySelector(`.${styles.hamburger}`);
+			const nav_menu = document.querySelector(`.${styles.mobilenav}`);
+	
+			menu_btn.addEventListener('click', function() {
+				menu_btn.classList.toggle(`${styles.isactive}`);
+				nav_menu.classList.toggle(`${styles.isactive}`);
+			});
+	
+		}
+	}
 
 	const { data, error } = useSWR("products/", fetcher);
 	console.log(data)
@@ -35,6 +47,15 @@ export default function Shop() {
 			  <h1 className={styles.signin}><Link href = "\login">Sign-in</Link></h1>
 				<h1 className={styles.menufonts}><button className={styles.sellbtn}><Link href = "http://10.28.164.119:8000/admin/products/product/add/" target="_blank">Sell my items</Link></button></h1>
 			</div>
+			<button className={`${styles.hamburger}`}>
+            <div className={styles.bar}></div>
+          </button>
+        </div>
+        <div className={styles.mobilenav}>
+        <h1><Link href = "\shop">Explore</Link></h1>
+              <h1><Link href = "\shop">Near Me</Link></h1>
+              <h1><Link href = "\shop">What's New?</Link></h1>
+              <h1><Link href = "\login">Sign-in</Link></h1>
 		</div>
 		</><div className={styles.headerimagecontainer}>
 				<div className={styles.btns}>

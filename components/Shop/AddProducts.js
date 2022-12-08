@@ -128,7 +128,8 @@ export function AddProducts({data}) {
 					id="description"
 					name="product_description"
 					placeholder="Write a few words about your product..."
-					value={data?data.product_description:''}
+					value={data?data.product_description:fields.product_description}
+					// value={data?data.product_description:''}
 					required
 					onChange={handleChange}
 				/>
